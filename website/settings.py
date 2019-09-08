@@ -25,7 +25,7 @@ SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY','j*(#)&loey7@$92t4!a)x1$%=*6xsyz
 # SECURITY WARNING: don't run with debug turned on in production!
 #DEBUG = True
 DEBUG = os.environ.get('DJANGO_DEBUG', '') != 'False'
-ALLOWED_HOSTS = ['rdvtest.herokuapp.com']
+ALLOWED_HOSTS = ['rdv-test.herokuapp.com','127.0.0.1']
 
 
 # Application definition
