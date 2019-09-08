@@ -1,0 +1,51 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>{% block title %}{% endblock %}</title>
+
+		<link rel="stylesheet" type="text/css" href="{% static 'css/w3.css' %}">
+		<link rel="stylesheet" type="text/css" href="{% static 'css/css1.css' %}">
+		<link rel="stylesheet" type="text/css" href="{% static 'css/css.css' %}">
+		<link rel="stylesheet" type="text/css" href="{% static 'css/font-awesome.min.css' %}">
+	</head>
+	<style>
+	table{width:100%}
+	body {
+	font-weight: 200;
+	font-size: 14px;
+	}
+	.header {
+	font-size: 20px;
+	font-weight: 100;
+	text-align: center;
+	color: #007cae;
+	}
+	.title {
+	font-size: 22px;
+	font-weight: 100;
+	/* text-align: right;*/
+	padding: 10px 20px 0px 20px;  
+	}
+	.title span {
+	color: #007cae;
+	}
+	.details {
+	padding: 10px 20px 0px 20px;
+	text-align: left !important;
+	}
+	.hrItem {
+	border: none;
+	height: 1px;
+	color: #333; 
+	background-color: #fff;
+	}	
+	</style>
+	<body>
+		{% block content %}
+		{% endblock %}
+	</body>
+</html>

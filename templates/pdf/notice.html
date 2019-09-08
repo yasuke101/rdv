@@ -1,0 +1,30 @@
+{% extends 'base_pdf.html' %}
+{% block title %}Ordonnance médicale{% endblock %}
+{% block content %}
+        <div class='wrapper'>
+            <div class='header' style="line-height:0.2;padding-bottom:20px">
+                <p style="text-align:center;color:green;">*Toujours avec la possibilité de changer la représentation de contenu*</p>
+                <h1 style="text-align:left">Ici logo / nom / info sur cabinet</h1>
+                <p class='title'><b>Ordonnance médicale</b></p>
+                <small style="color:black">Tanger le {% now "j F Y" %} à {% now "H:i" %}</small>
+            </div>
+            <div>
+                
+            </div>
+        <div>
+        <div class='details'>
+            <p>{% if data.sexe == 'Homme' %}Monsieur {% elif data.sexe == 'Femme' %}Madame{% endif %} {{ data.nom|capfirst }} {{ data.prenom|capfirst }}.</p>
+            <h1 style="text-align:center;">Ici l'application de la logique de génération de contenu, soit:</h1>
+            <h2 style="color:blue">1- Choisir les noms des medicaments et leur descriptions (dose par ex) depuis la base de donnée.</h2>
+            <div style="line-height:0.4">
+            <p style="color:red">Notez bien que :</p>
+            <p>- Cette méthode peut etre utilisé si les descriptions des médicament ne sont des donnés statique c-a-d qui ne change pas selon le client.(dose par ex)</p>
+            <p>- L'importation des données peut etre effectuée depuis une base de donnée deja exister(fichier excel par ex).Ou bien les saisir manuellemnent dans la base de donnée.</p>
+            </div>
+            <h2 style="color:blue">2- Importer les noms des médicaments de la même logique que avant et ajouter leur descriptions manuellement.</h2>
+            <h2 style="color:blue">3- Ajouter les noms des médicaments et leur descriptions manuellement.</h2>
+            <p style="text-align:left">Signature:</p><br/>
+            <hr/>
+        </div>
+    </div>
+{% endblock %}

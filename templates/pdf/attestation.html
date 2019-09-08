@@ -1,0 +1,24 @@
+{% extends 'base_pdf.html' %}
+{% block title %}Certificat médical{% endblock %}
+{% block content %}
+        <div class='wrapper'>
+            <div class='header' style="line-height:0.2;padding-bottom:20px">
+                <p style="text-align:center;color:green;">*Toujours avec la possibilité de changer la représentation de contenu*</p>
+                <h1 style="text-align:left">Ici logo / nom / info sur cabinet</h1>
+                <p class='title'><b>Certificat médical</b></p>
+                <small style="color:black">Tanger le {% now "j F Y" %} à {% now "H:i" %}</small>
+            </div>
+            <div>
+                
+            </div>
+        <div>
+        <div class='details'>
+            <p>je soussigné. Docteur en Medecine, Certifie que l'état de santé de {% if data.sexe == 'Homme' %}Monsieur {% elif data.sexe == 'Femme' %}Madame{% endif %}  <b>{{ data.nom|capfirst }} {{ data.prenom|capfirst }}</b> :</p>
+            <p><b>1-</b> Nécessite un traitement avec arrêt de travail de ............................................... jours,sauf complications,<br>du ................................... au ...................................</p>
+            <p><b>2-</b> Nécessite un prolongation avec arrêt de travail de ........................................... jours,sauf complications,<br>du ................................... au ...................................</p>
+            <p><b>3-</b> Nécessite un prolongation avec arrêt de travail de ........................................... jours,sauf complications, <br>du ................................... au ...................................</p>
+            <p style="text-align:left">Signature:</p><br/>
+            <hr/>
+        </div>
+    </div>
+{% endblock %}

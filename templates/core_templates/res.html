@@ -1,0 +1,117 @@
+{% extends 'base.html' %}
+{% load widget_tweaks %}
+{% load static %}
+
+{% block title %}créer un RDV{% endblock %}
+
+{% block javascript %}
+<script src="{% static 'js/jquery.datetimepicker.full.min.js' %}"></script>
+<script type="text/javascript">
+$(function () {
+    $("#id_date_de_RDV").datetimepicker({
+      format: 'd/m/Y H:i',
+    });
+  });
+</script>
+{% endblock %}
+
+{% block content %}
+<div class="w3-padding-16 w3-content w3-container">
+    <div class="w3-center w3-content" style="width:50%">
+        <h1>Créer un rendez-vous</h1>
+        <hr>
+    </div>
+    <div id="message">
+    {% for message in messages %}
+        {% if message.tags == "error" %}
+            <p style="color:white;background-color:#f44336;width:450px" class="w3-content w3-center">{{ message }}</p>
+        {% endif %}
+        {% if message.tags == "success" %}
+            <p style="color:white;background-color:#68B29F;width:450px" class="w3-content w3-center">{{ message }}</p>
+        {% endif %}
+    {% endfor %}
+    {% for field in form.visible_fields %}  
+        {% for error in field.errors %}
+            <p style="color:white;background-color:#f44336;width:450px" class="w3-content w3-center">{{ error }}</p>
+        {% endfor %}
+    {% endfor %}  
+    </div>
+    <form method="post" style="width:60%;line-height:1.3" class="w3-content" enctype="multipart/form-data">
+    {% csrf_token %}
+        {% for hidden in form.hidden_fields %}
+            {{ hidden }}
+        {% endfor %}
+        <table>
+            <tr>
+                <td>
+                   <label for="{{ nom.id_for_label }}">Nom</label> 
+                </td>
+                <td>
+                    <label for="{{ prenom.id_for_label }}">Prénom</label>  
+                </td>
+                <td>
+                    <label for="{{ sexe.id_for_label }}">Sexe</label>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    {% render_field form.nom class="w3-input w3-border w3-round" autocomplete="off" type="text" %}
+                </td>
+                <td>
+                    {% render_field form.prenom class="w3-input w3-border w3-round" autocomplete="off" type="text" %}
+                </td>
+                <td>
+                    {% render_field form.sexe class="w3-input w3-border w3-round" autocomplete="off" type="text" %}
+                </td>
+            </tr>
+        </table>
+        <table>
+            <tr>
+                <td>
+                   <label for="{{ CIN.id_for_label }}">Numéro de CIN</label> 
+                </td>
+                <td>
+                    <label for="{{ image_de_CIN.id_for_label }}">Images de CIN</label> 
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    {% render_field form.CIN class="w3-input w3-border w3-round" autocomplete="off" type="text" %}
+                </td>
+                <td>
+                    {% render_field form.image_de_CIN class="w3-input w3-border w3-round" type="file" %}
+                </td>
+            </tr>
+        </table>
+        <small>•Pour choisir plusieurs images, tenez "controle (Ctrl)" ou "Command" sur mac en cliquant sur les photo à choisir</small>       
+        <table>
+            <tr>
+                <td>
+                    <label for="{{ date_de_RDV.id_for_label }}">Date de rendez-vous</label>
+                </td>
+                <td>
+                    <label for="{{ telephone.id_for_label }}">Téléphone</label>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    {% render_field form.date_de_RDV class="w3-input w3-border w3-round" autocomplete="off" type="text" %}
+                </td>
+                <td>
+                    {% render_field form.telephone class="w3-input w3-border w3-round" autocomplete="off" type="text" %}
+                </td>
+            </tr>
+        </table>
+        <button type="submit" class="w3-right w3-button w3-border w3-round w3-margin-top">Envoyer</button>
+    </form>
+</div>
+{% if existed is not none %}
+    <h3 class="w3-center">Liste des heure prise pour la même journée :</h3>
+    <h5 class="w3-text-grey w3-center"> <b>Schant que la durée moyenne d'un RDV est 30 min</b></h5>
+    <div class=" w3-container w3-content" style="width:400px;height:200px;overflow:auto;">
+        {% for res in existed %}
+        <p class="w3-center w3-panel w3-border w3-border-teal w3-round">{{ res.date_de_RDV.time }} <span class="w3-small">(+30 min) </span></p>
+        {% endfor %}
+    </div>
+{% endif %}
+{% endblock %}
