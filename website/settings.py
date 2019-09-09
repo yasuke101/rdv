@@ -17,19 +17,11 @@ import dj_database_url
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 
-# Quick-start development settings - unsuitable for production
-# See https://docs.djangoproject.com/en/2.2/howto/deployment/checklist/
 
-# SECURITY WARNING: keep the secret key used in production secret!
-#SECRET_KEY = 'j*(#)&loey7@$92t4!a)x1$%=*6xsyz=*_&k(3nlzhseb*nkl@'
 SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY','j*(#)&loey7@$92t4!a)x1$%=*6xsyz=*_&k(3nlzhseb*nkl@')
-# SECURITY WARNING: don't run with debug turned on in production!
-#DEBUG = True
+
 DEBUG = os.environ.get('DJANGO_DEBUG', '') != 'False'
 ALLOWED_HOSTS = ['rdv-test.herokuapp.com','127.0.0.1']
-
-
-# Application definition
 
 INSTALLED_APPS = [
     'django.contrib.admin',
@@ -125,7 +117,7 @@ USE_TZ = True
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 # The URL to use when referring to static files (where they will be served from)
-STATIC_URL = '/static/'
+STATIC_URL = '/app/staticfiles/'
 
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
