@@ -1,10 +1,11 @@
 {% extends 'base.html' %}
 {% load widget_tweaks %}
-{% load staticfiles %}
+{% load static %}
 
 {% block title %}créer un RDV{% endblock %}
 
 {% block javascript %}
+<script src="/tmp/build_0624759a6722f729d950893d21a06ada/staticfiles/js/jquery.datetimepicker.full.min.js"></script>
 <script type="text/javascript">
 $(function () {
     $("#id_date_de_RDV").datetimepicker({
