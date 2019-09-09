@@ -30,7 +30,7 @@
 
 		<!--header-->
 		<div class="header w3-container">
-		  <h1>Ici le Logo/nom</h1>
+		  <img src="{% static 'pic/orange.png' %}">
 		</div>
 
 		<!--navbar-->
@@ -70,9 +70,9 @@
 			  {
 			    navbar.classList.remove("sticky");
 			  }
-			}
-		{% block javascript %}
-		{% endblock %}				
+			}	
 		</script>
+		{% block javascript %}
+		{% endblock %}
 	</body>
 </html>
