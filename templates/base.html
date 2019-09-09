@@ -7,11 +7,11 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<title>{% block title %}{% endblock %}</title>
 
-		<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-		<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
-		<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
-		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-datetimepicker/2.5.20/jquery.datetimepicker.min.css" integrity="sha256-DOS9W6NR+NFe1fUhEE0PGKY/fubbUCnOfTje2JMDw3Y=" crossorigin="anonymous" />
+		<link rel="stylesheet" type="text/css" href="{% static 'css/w3.css' %}">
+		<link rel="stylesheet" type="text/css" href="{% static 'css/css1.css' %}">
+		<link rel="stylesheet" type="text/css" href="{% static 'css/css.css' %}">
+		<link rel="stylesheet" type="text/css" href="{% static 'css/font-awesome.min.css' %}">
+		<link rel="stylesheet" type="text/css" href="{% static 'css/jquery.datetimepicker.min.css' %}"/>
 	</head>
 
 	<style>
@@ -48,10 +48,12 @@
 		<div class="w3-diplay-bottom w3-center" style="padding-top:300px">
 			<hr>
 			<div class="w3-container w3-content">
-				<h4 style="color:#007cae">Ici pied de la page</h4>
+				<h4 style="color:#68B29F;">Here go the footer</h4>
 				<p>Content</p>
 			</div>
 		</div>
+
+		<script src="{% static 'js/jquery-3.4.1.min.js' %}"></script>
 		<script type="text/javascript">
 			window.onscroll = function() {myFunction()};
 
