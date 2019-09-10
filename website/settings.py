@@ -21,6 +21,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY','j*(#)&loey7@$92t4!a)x1$%=*6xsyz=*_&k(3nlzhseb*nkl@')
 
 DEBUG = os.environ.get('DJANGO_DEBUG', '') != 'False'
+
 ALLOWED_HOSTS = ['rdv-test.herokuapp.com','127.0.0.1']
 
 INSTALLED_APPS = [
