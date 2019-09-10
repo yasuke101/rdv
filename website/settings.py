@@ -47,6 +47,11 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 CSRF_COOKIE_SECURE=True
+SECURE_CONTENT_TYPE_NOSNIFF=True
+SECURE_BROWSER_XSS_FILTER=True
+SECURE_SSL_REDIRECT=True
+SESSION_COOKIE_SECURE=True
+X_FRAME_OPTIONS='DENY'
 
 ROOT_URLCONF = 'website.urls'
 
