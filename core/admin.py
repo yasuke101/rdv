@@ -42,7 +42,7 @@ class resadmin(admin.ModelAdmin):
 
 admin.site.register(res,resadmin)
 admin.site.unregister(Group)
-
+admin.site.unregister(User)
 
 admin.site.index_title="Gestion des rendez-vous"
 admin.site.site_title="Ici le nom du cabinet médical"
