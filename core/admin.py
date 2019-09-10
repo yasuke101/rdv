@@ -7,7 +7,7 @@ import csv
 
 class resadmin(admin.ModelAdmin):
 	fieldsets=[
-		('Information presonnelle',{'fields': [('nom','prenom','sexe'),('CIN','telephone')]}),
+		('Information presonnelle',{'fields': [('nom','prenom','sexe'),('CIN','telephone','image_de_CIN')]}),
 		('Information liée au métier',{'fields': ['date_de_RDV']}),
 	]
 	list_display=('CIN','nom','prenom','date_de_RDV','date_de_creation','telephone',)
