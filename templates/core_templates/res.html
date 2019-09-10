@@ -3,6 +3,7 @@
 {% load static %}
 {% block title %}Créer un RDV{% endblock %}
 {% block javascript %}
+<script src="{% static 'js/jquery.datetimepicker.full.min.js' %}"></script>
 <script type="text/javascript">
 $(function () {
     $("#id_date_de_RDV").datetimepicker({
