@@ -42,65 +42,34 @@ $(function () {
         <table>
             <tr>
                 <td>
-                   <label for="{{ nom.id_for_label }}">Nom</label> 
+                    {% render_field form.nom class="w3-input w3-border w3-round" placeholder="Nom" type="text" %}
                 </td>
                 <td>
-                    <label for="{{ prenom.id_for_label }}">Prénom</label>  
-                </td>
-                <td>
-                    <label for="{{ sexe.id_for_label }}">Sexe</label>
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    {% render_field form.nom class="w3-input w3-border w3-round" autocomplete="off" type="text" %}
-                </td>
-                <td>
-                    {% render_field form.prenom class="w3-input w3-border w3-round" autocomplete="off" type="text" %}
-                </td>
-                <td>
-                    {% render_field form.sexe class="w3-input w3-border w3-round" autocomplete="off" type="text" %}
+                    {% render_field form.prenom class="w3-input w3-border w3-round" placeholder="Prénom" type="text" %}
                 </td>
             </tr>
         </table>
         <table>
             <tr>
                 <td>
-                   <label for="{{ CIN.id_for_label }}">Numéro de CIN</label> 
+                    {% render_field form.CIN class="w3-input w3-border w3-round" placeholder="Numéro de CIN" type="text" %}
                 </td>
-                <td>
-                    <label for="{{ image_de_CIN.id_for_label }}">Images de CIN</label> 
-                </td>
+               <td>
+                    {% render_field form.sexe class="w3-input w3-border w3-round" type="text" %}
+                </td>                
             </tr>
-            <tr>
-                <td>
-                    {% render_field form.CIN class="w3-input w3-border w3-round" autocomplete="off" type="text" %}
-                </td>
-                <td>
-                    {% render_field form.image_de_CIN class="w3-input w3-border w3-round" type="file" %}
-                </td>
-            </tr>
-        </table>
-        <small>•Pour choisir plusieurs images, tenez "controle (Ctrl)" ou "Command" sur mac en cliquant sur les photo à choisir</small>       
+        </table>      
         <table>
             <tr>
                 <td>
-                    <label for="{{ date_de_RDV.id_for_label }}">Date de rendez-vous</label>
-                </td>
+                    {% render_field form.telephone class="w3-input w3-border w3-round" placeholder="Téléphone" type="text" %}
+                </td>                
                 <td>
-                    <label for="{{ telephone.id_for_label }}">Téléphone</label>
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    {% render_field form.date_de_RDV class="w3-input w3-border w3-round" autocomplete="off" type="text" %}
-                </td>
-                <td>
-                    {% render_field form.telephone class="w3-input w3-border w3-round" autocomplete="off" type="text" %}
+                    {% render_field form.date_de_RDV class="w3-input w3-border w3-round" placeholder="Date de rendez-vous" autocomplete="off" type="text" %}
                 </td>
             </tr>
         </table>
-        <button type="submit" class="w3-right w3-button w3-border w3-round w3-margin-top">Envoyer</button>
+        <button type="submit" class="w3-right w3-button w3-border w3-round w3-margin-top">Créer</button>
     </form>
 </div>
 {% if existed is not none %}

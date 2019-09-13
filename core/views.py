@@ -24,12 +24,10 @@ def res_view(request):
 				prenom=form.cleaned_data.get('prenom')
 				telephone=form.cleaned_data.get('telephone')
 				sexe=form.cleaned_data.get('sexe')
-				img_list=request.FILES.getlist('image_de_CIN')
+				#img_list=request.FILES.getlist('image_de_CIN')
 				
 				created=res.objects.create(date_de_RDV=date,CIN=cin,nom=nom,prenom=prenom,telephone=telephone,sexe=sexe)
-				for img in img_list:
-					created.image_de_CIN=img
-					created.save()
+
 				
 				data={'data':created}
 				pdf=render_to_pdf('pdf/rdv.html',data)
