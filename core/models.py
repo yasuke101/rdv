@@ -4,7 +4,7 @@ from django.db import models
 #	return '{0}/{1}'.format(instance.CIN, filename)
 
 class res(models.Model):
-	sexe=[('','Choisir votre sexe'),('Homme','Homme'),('Femme','Femme')]
+	sexe=[('',''),('Homme','Homme'),('Femme','Femme')]
 	CIN=models.CharField(max_length=7)
 	#image_de_CIN=models.ImageField(upload_to=user_directory_path)
 	nom=models.CharField(max_length=200)

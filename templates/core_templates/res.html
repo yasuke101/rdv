@@ -42,34 +42,58 @@ $(function () {
         <table>
             <tr>
                 <td>
-                    {% render_field form.nom class="w3-input w3-border w3-round" placeholder="Nom" type="text" %}
+                   <label for="{{ nom.id_for_label }}">Nom</label> 
                 </td>
                 <td>
-                    {% render_field form.prenom class="w3-input w3-border w3-round" placeholder="Prénom" type="text" %}
+                    <label for="{{ prenom.id_for_label }}">Prénom</label>  
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    {% render_field form.nom class="w3-input w3-border w3-round" autocomplete="off" type="text" %}
+                </td>
+                <td>
+                    {% render_field form.prenom class="w3-input w3-border w3-round" autocomplete="off" type="text" %}
                 </td>
             </tr>
         </table>
         <table>
             <tr>
                 <td>
-                    {% render_field form.CIN class="w3-input w3-border w3-round" placeholder="Numéro de CIN" type="text" %}
+                   <label for="{{ CIN.id_for_label }}">Numéro de CIN</label> 
                 </td>
-               <td>
-                    {% render_field form.sexe class="w3-input w3-border w3-round" type="text" %}
-                </td>                
+                <td>
+                    <label for="{{ sexe.id_for_label }}">Sexe</label>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    {% render_field form.CIN class="w3-input w3-border w3-round" autocomplete="off" type="text" %}
+                </td>
+                <td>
+                    {% render_field form.sexe class="w3-input w3-border w3-round" autocomplete="off" type="text" %}
+                </td>
             </tr>
         </table>      
         <table>
             <tr>
                 <td>
-                    {% render_field form.telephone class="w3-input w3-border w3-round" placeholder="Téléphone" type="text" %}
-                </td>                
-                <td>
-                    {% render_field form.date_de_RDV class="w3-input w3-border w3-round" placeholder="Date de rendez-vous" autocomplete="off" type="text" %}
+                    <label for="{{ telephone.id_for_label }}">Téléphone</label>
                 </td>
+                <td>
+                    <label for="{{ date_de_RDV.id_for_label }}">Date de rendez-vous</label>
+                </td>                
+            </tr>
+            <tr>
+                <td>
+                    {% render_field form.telephone class="w3-input w3-border w3-round" autocomplete="off" type="text" %}
+                </td>
+                <td>
+                    {% render_field form.date_de_RDV class="w3-input w3-border w3-round" autocomplete="off" type="text" %}
+                </td>                
             </tr>
         </table>
-        <button type="submit" class="w3-right w3-button w3-border w3-round w3-margin-top">Créer</button>
+        <button type="submit" class="w3-right w3-button w3-border w3-round w3-margin-top">Envoyer</button>
     </form>
 </div>
 {% if existed is not none %}
