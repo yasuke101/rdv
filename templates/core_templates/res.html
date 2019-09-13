@@ -60,7 +60,7 @@ $(function () {
         <table>
             <tr>
                 <td>
-                   <label style="width:60%" for="{{ CIN.id_for_label }}">Numéro de CIN</label> 
+                   <label for="{{ CIN.id_for_label }}">Numéro de CIN</label> 
                 </td>
                 <td>
                     <label for="{{ sexe.id_for_label }}">Sexe</label>
@@ -71,7 +71,7 @@ $(function () {
                     {% render_field form.CIN class="w3-input w3-border w3-round" type="text" %}
                 </td>
                 <td>
-                    {% render_field form.sexe class="w3-input w3-border w3-round" type="text" %}
+                    {% render_field form.sexe style="width:40%" class="w3-input w3-border w3-round" type="text" %}
                 </td>
             </tr>
         </table>      
@@ -93,7 +93,7 @@ $(function () {
                 </td>                
             </tr>
         </table>
-        <button type="submit" class="w3-right w3-button w3-border w3-round w3-margin-top">Envoyer</button>
+        <button type="submit" class="w3-right w3-button w3-border w3-round w3-margin-top">Créer</button>
     </form>
 </div>
 {% if existed is not none %}
