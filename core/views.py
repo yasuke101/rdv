@@ -1,6 +1,5 @@
 from django.shortcuts import render
 from django.contrib import messages
-from django.db.models import Q
 from datetime import datetime,timedelta
 from .models import *
 from .forms import *
@@ -23,12 +22,8 @@ def res_view(request):
 				nom=form.cleaned_data.get('nom')
 				prenom=form.cleaned_data.get('prenom')
 				telephone=form.cleaned_data.get('telephone')
-				sexe=form.cleaned_data.get('sexe')
-				#img_list=request.FILES.getlist('image_de_CIN')
-				
+				sexe=form.cleaned_data.get('sexe')				
 				created=res.objects.create(date_de_RDV=date,CIN=cin,nom=nom,prenom=prenom,telephone=telephone,sexe=sexe)
-
-				
 				data={'data':created}
 				pdf=render_to_pdf('pdf/rdv.html',data)
 				return HttpResponse(pdf,content_type='application/pdf')

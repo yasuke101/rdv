@@ -5,7 +5,6 @@ from .models import *
 
 class res_form(forms.ModelForm):
 	date_de_RDV=forms.DateTimeField(input_formats=['%d/%m/%Y %H:%M'])
-	#image_de_CIN=forms.ImageField(widget=forms.ClearableFileInput(attrs={'multiple':True}))
 	class Meta:
 		model=res
 		fields=('date_de_RDV','CIN','nom','prenom','sexe','telephone')
