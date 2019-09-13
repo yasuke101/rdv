@@ -34,14 +34,14 @@ $(function () {
         {% endfor %}
     {% endfor %}  
     </div>
-    <form method="post" style="width:40%;line-height:1.3" class="w3-content" enctype="multipart/form-data">
+    <form method="post" style="width:400px;line-height:1.3" class="w3-content" enctype="multipart/form-data">
     {% csrf_token %}
         {% for hidden in form.hidden_fields %}
             {{ hidden }}
         {% endfor %}
         <table>
             <tr>
-                <td style="width:30%">
+                <td style="width:40%">
                     <label for="{{ prenom.id_for_label }}">Prénom</label>  
                 </td>                
                 <td>
@@ -60,7 +60,7 @@ $(function () {
         <table>
             <tr>
                 <td>
-                   <label for="{{ CIN.id_for_label }}">Numéro de CIN</label> 
+                   <label style="width:60%" for="{{ CIN.id_for_label }}">Numéro de CIN</label> 
                 </td>
                 <td>
                     <label for="{{ sexe.id_for_label }}">Sexe</label>
