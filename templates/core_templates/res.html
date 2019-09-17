@@ -32,12 +32,12 @@ $(function () {
         {% endfor %}
     {% endfor %}  
     </div>
-    <form method="post">
+    <form method="post" style="line-height:0.2">
     {% csrf_token %}
         {% for hidden in form.hidden_fields %}
             {{ hidden }}
         {% endfor %}
-      <div class="form-row row justify-content-center" style="line-height:0.2">
+      <div class="form-row row justify-content-center">
         <div class="form-group col-md-3">
           <label for="{{ prenom.id_for_label }}">Prénom</label>
           {% render_field form.prenom class="form-control" type="text" %}
