@@ -14,23 +14,25 @@ $(function () {
 {% endblock %}
 
 {% block content %}
-<div class="p-5">
+<div class="my-5">
     <h2 class="text-center text-info">Créer votre rendez-vous</h2>
     <hr style="width:50%">
-    <div id="message">
-    {% for message in messages %}
-        {% if message.tags == "error" %}
-            <p style="color:white;background-color:#f44336;width:450px" class="text-center mx-auto">{{ message }}</p>
-        {% endif %}
-        {% if message.tags == "success" %}
-            <p style="color:white;background-color:#68B29F;width:450px" class="text-center mx-auto">{{ message }}</p>
-        {% endif %}
-    {% endfor %}
-    {% for field in form.visible_fields %}  
-        {% for error in field.errors %}
-            <p style="color:white;background-color:#f44336;width:450px" class="text-center mx-auto">{{ error }}</p>
-        {% endfor %}
-    {% endfor %}  
+    <div class="row justify-content-center text-center" id="message">
+        <div class="col-md-5">
+            {% for message in messages %}
+                {% if message.tags == "error" %}
+                    <p style="color:white;background-color:#f44336;">{{ message }}</p>
+                {% endif %}
+                {% if message.tags == "success" %}
+                    <p style="color:white;background-color:#68B29F;">{{ message }}</p>
+                {% endif %}
+            {% endfor %}
+            {% for field in form.visible_fields %}  
+                {% for error in field.errors %}
+                    <p style="color:white;background-color:#f44336;">{{ error }}</p>
+                {% endfor %}
+            {% endfor %}
+        </div>
     </div>
     <form method="post" style="line-height:0.2">
     {% csrf_token %}
@@ -73,12 +75,14 @@ $(function () {
     </form>
 </div>
 {% if existed is not none %}
-    <h3 class="text-center">Liste des heure prise pour la même journée :</h3>
-    <h5 class="text-secondary text-center"> <b>Schant que la durée moyenne d'un RDV est 30 min</b></h5>
+<div class="text-center my-4">
+    <h3>Liste des heure prise pour la même journée :</h3>
+    <h5 class="text-secondary"> <b>Schant que la durée moyenne d'un RDV est 30 min</b></h5>
     <div class="container" style="width:400px;height:200px;overflow:auto;">
         {% for res in existed %}
-        <p class="text-center border border-info rounded">{{ res.date_de_RDV.time }}<span class="small"> (+30 min) </span></p>
+        <p class="border border-info rounded">{{ res.date_de_RDV.time }}<span class="small"> (+30 min) </span></p>
         {% endfor %}
     </div>
+</div>
 {% endif %}
 {% endblock %}
