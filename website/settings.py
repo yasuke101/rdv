@@ -46,6 +46,7 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
+
 CSRF_COOKIE_SECURE=True
 SECURE_CONTENT_TYPE_NOSNIFF=True
 SECURE_BROWSER_XSS_FILTER=True
