@@ -14,97 +14,70 @@ $(function () {
 {% endblock %}
 
 {% block content %}
-<div class="w3-padding-32 w3-content w3-container">
-    <h1 class="w3-center">Créer un rendez-vous</h1>
-    <div class="w3-center w3-content" style="width:50%">
-        <hr>
-    </div>
+<div class="p-5">
+    <h2 class="text-center text-info">Créer votre rendez-vous</h2>
+    <hr style="width:50%">
     <div id="message">
     {% for message in messages %}
         {% if message.tags == "error" %}
-            <p style="color:white;background-color:#f44336;width:450px" class="w3-content w3-center">{{ message }}</p>
+            <p style="color:white;background-color:#f44336;width:450px" class="text-center mx-auto">{{ message }}</p>
         {% endif %}
         {% if message.tags == "success" %}
-            <p style="color:white;background-color:#68B29F;width:450px" class="w3-content w3-center">{{ message }}</p>
+            <p style="color:white;background-color:#68B29F;width:450px" class="text-center mx-auto">{{ message }}</p>
         {% endif %}
     {% endfor %}
     {% for field in form.visible_fields %}  
         {% for error in field.errors %}
-            <p style="color:white;background-color:#f44336;width:450px" class="w3-content w3-center">{{ error }}</p>
+            <p style="color:white;background-color:#f44336;width:450px" class="text-center mx-auto">{{ error }}</p>
         {% endfor %}
     {% endfor %}  
     </div>
-    <form method="post" style="width:380px;line-height:1.3" class="w3-content" enctype="multipart/form-data">
+    <form method="post">
     {% csrf_token %}
         {% for hidden in form.hidden_fields %}
             {{ hidden }}
         {% endfor %}
-        <div class="w3-half">
-            
+      <div class="form-row row justify-content-center" style="line-height:0.2">
+        <div class="form-group col-md-3">
+          <label for="{{ prenom.id_for_label }}">Prénom</label>
+          {% render_field form.prenom class="form-control" type="text" %}
         </div>
-        <table>
-            <tr>
-                <td>
-                    <label for="{{ prenom.id_for_label }}">Prénom</label>  
-                </td>                
-                <td style="width:60%">
-                   <label for="{{ nom.id_for_label }}">Nom</label> 
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    {% render_field form.prenom class="w3-input w3-border w3-round" type="text" %}
-                </td>                
-                <td>
-                    {% render_field form.nom class="w3-input w3-border w3-round" type="text" %}
-                </td>
-            </tr>
-        </table>
-        <table>
-            <tr>
-                <td>
-                   <label for="{{ CIN.id_for_label }}">Numéro de CIN</label> 
-                </td>
-                <td>
-                    <label for="{{ sexe.id_for_label }}">Sexe</label>
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    {% render_field form.CIN class="w3-input w3-border w3-round" type="text" %}
-                </td>
-                <td>
-                    {% render_field form.sexe class="w3-input w3-border w3-round" type="text" %}
-                </td>
-            </tr>
-        </table>      
-        <table>
-            <tr>
-                <td>
-                    <label for="{{ telephone.id_for_label }}">Téléphone</label>
-                </td>
-                <td>
-                    <label for="{{ date_de_RDV.id_for_label }}">Date de rendez-vous</label>
-                </td>                
-            </tr>
-            <tr>
-                <td>
-                    {% render_field form.telephone class="w3-input w3-border w3-round" type="text" %}
-                </td>
-                <td>
-                    {% render_field form.date_de_RDV class="w3-input w3-border w3-round" autocomplete="off" type="text" %}
-                </td>                
-            </tr>
-        </table>
-        <button type="submit" class="w3-right w3-button w3-border w3-round w3-margin-top">Envoyer</button>
+        <div class="form-group col-md-3">
+         <label for="{{ nom.id_for_label }}">Nom</label> 
+           {% render_field form.nom class="form-control" type="text" %}
+        </div>       
+      </div>
+      <div class="form-row row justify-content-center">
+        <div class="form-group col-md-3">
+          <label for="{{ CIN.id_for_label }}">Numéro de CIN</label>
+          {% render_field form.CIN class="form-control" type="text" %}
+        </div>
+        <div class="form-group col-md-3">
+        <label for="{{ sexe.id_for_label }}">Sexe</label>
+        {% render_field form.sexe class="form-control" type="text" %}
+        </div>        
+      </div>   
+      <div class="form-row row justify-content-center">
+        <div class="form-group col-md-3">
+         <label for="{{ telephone.id_for_label }}">Téléphone</label> 
+           {% render_field form.telephone class="form-control" type="text" %}
+        </div>
+        <div class="form-group col-md-3">
+         <label for="{{ date_de_RDV.id_for_label }}">Date de rendez-vous</label> 
+           {% render_field form.date_de_RDV class="form-control" autocomplete="off" type="text" %}
+        </div>        
+      </div>
+      <div class="mx-auto my-1" style="padding-left:67%">       
+        <button type="submit" class="btn btn-info ">Envoyer</button>
+        </div>
     </form>
 </div>
 {% if existed is not none %}
-    <h3 class="w3-center">Liste des heure prise pour la même journée :</h3>
-    <h5 class="w3-text-grey w3-center"> <b>Schant que la durée moyenne d'un RDV est 30 min</b></h5>
-    <div class=" w3-container w3-content" style="width:400px;height:200px;overflow:auto;">
+    <h3 class="text-center">Liste des heure prise pour la même journée :</h3>
+    <h5 class="text-secondary text-center"> <b>Schant que la durée moyenne d'un RDV est 30 min</b></h5>
+    <div class="container" style="width:400px;height:200px;overflow:auto;">
         {% for res in existed %}
-        <p class="w3-center w3-panel w3-border w3-border-teal w3-round">{{ res.date_de_RDV.time }}<span class="w3-small">(+30 min) </span></p>
+        <p class="text-center border border-info rounded">{{ res.date_de_RDV.time }}<span class="small"> (+30 min) </span></p>
         {% endfor %}
     </div>
 {% endif %}

@@ -5,11 +5,11 @@
 	<head> 
 		<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<link rel="icon" href="{% static 'pic/r.jpg' %}">
 		<title>{% block title %}{% endblock %}</title>
-		<link rel="stylesheet" type="text/css" href="{% static 'css/w3.css' %}">
+		<link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap.min.css' %}">
 		<link rel="stylesheet" type="text/css" href="{% static 'css/css1.css' %}">
 		<link rel="stylesheet" type="text/css" href="{% static 'css/css.css' %}">
+		<link rel="stylesheet" type="text/css" href="{% static 'css/font-awesome.min.css' %}">
 		<link rel="stylesheet" type="text/css" href="{% static 'css/jquery.datetimepicker.min.css' %}"/>
 	</head>
 
@@ -17,42 +17,21 @@
 	small{color:grey}
 	label{color:#007cae}
 	table{width:100%}
-	#navbar {overflow: hidden;}
-	#navbar a {float: left;display: block;color:black;text-align: center;padding: 8px 10px;text-decoration: none;font-size: 15px;}
-	#navbar a:hover {background-color:#d3d3d3;color: black;}
-	#navbar a.active {background-color:#007cae;color: white;}
-	.content {padding: 0px;}
-	.sticky {position: fixed;top: 0;width: 100%;}
-	.sticky + .content {padding-top: 60px;}
 	</style>
 	<body>
 
 		<!--header-->
-		<div class="header w3-container">
-		  <h1><a href="{% url 'res' %}" style="text-decoration:none">Ici le Logo ou le nom</a></h1>
-		</div>
-
-		<!--navbar-->
-		<div id="navbar" class="w3-bar w3-light-grey">
-			<a href="#">Accueil</a>
-			<a href="#">A propos de nous</a>
-			<a class="active" style="float:right" href="{% url 'res' %}">Rendez-vous en ligne</a>
-		</div>
-		
-		<div class="content">
+		<header class="header">
+			<h3 class="text-secondary">Ici le logo / nom du cabinet médical</h3>
+		</header>		
+		<div class="p-5" id="content">
 		{% block content %}
 		{% endblock %}
 		</div>
 
-		<div class="w3-diplay-bottom w3-center" style="padding-top:300px">
-			<hr>
-			<div class="w3-container w3-content">
-				<h4 style="color:#007cae;">Here go the footer</h4>
-				<p>Content</p>
-			</div>
-		</div>
-
 		<script src="{% static 'js/jquery-3.4.1.min.js' %}"></script>
+		<script src="{% static 'js/popper.min' %}"></script>
+		<script src="{% static 'js/bootstrap.min' %}"></script>
 		<script type="text/javascript">
 			window.onscroll = function() {myFunction()};
 
